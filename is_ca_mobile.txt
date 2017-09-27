@@ -1,0 +1,23 @@
+﻿//Cache query
+$config['is_cache']=0;
+$GLOBALS['ADODB_CACHE_DIR']=$config['dir_ws'].'/cache_query';
+define('TIME_CACHE_300',300);
+define('TIME_CACHE_900',900);
+define('TIME_CACHE_1800',1800);
+define('TIME_CACHE_3600',3600);
+define('TIME_CACHE_7200',7200);
+define('TIME_CACHE_10800',10800);
+define('TIME_CACHE_86400',86400);
+define('TIME_CACHE_259200',259200);
+define('TIME_CACHE_31536000',31536000);
+
+//Check mobile
+require_once('MobileDetect.php');
+$detect = new MobileDetect();
+$check = $detect->isMobile();
+$isMobile=0;
+if($check)
+{
+	$isMobile=1;
+}
+$smarty->assign('isMobile',$isMobile);
